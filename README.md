@@ -39,4 +39,4 @@ Se realizo la programacion en python del siguiente código:[monitor temperatura]
    - El bloque `try...except` captura cualquier excepción que pueda ocurrir al intentar leer la temperatura, como problemas al ejecutar el comando o errores de conversión de datos. Si ocurre un error, se imprime un mensaje y se devuelve `None`.
 
 9. **¿Cómo podría modificar el script para guardar las temperaturas en un archivo .csv?**
-   - El script ya incluye una función `guardar_datos_csv` que se encarga de guardar las temperaturas en un archivo .csv. Para asegurarte de que se guarden las temperaturas, simplemente asegúrate de que la función `guardar_datos_csv` se llame con los parámetros correctos (que ya se hace en `actualizar_datos`). Si deseas cambiar el nombre del archivo o la ubicación.
+   - El script ya incluye una función `guardar_datos_csv` que se encarga de guardar las temperaturas en un archivo .csv. Para asegurarte de que se guarden las temperaturas, simplemente asegúrate de que la función `guardar_datos_csv` se llame con los parámetros correctos (que ya se hace en `actualizar_datos`). 
