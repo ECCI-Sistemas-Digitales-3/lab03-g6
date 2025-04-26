@@ -2,27 +2,39 @@
 # Lab03: Visualización de Datos en Raspberry Pi Zero W
 
 ## Integrantes
-
+Laura Hernandez Rodriguez
+Sergio Ricardo Leon
 
 ## Documentación
 
 
 ## Preguntas
 
-1. ¿Qué función cumple ```plt.fignum_exists(self.fig.number)``` en el ciclo principal?
+# Respuestas a las Preguntas sobre el Código
 
-2. ¿Por qué se usa ```time.sleep(self.intervalo)``` y qué pasa si se quita?
+1. **¿Qué función cumple `plt.fignum_exists(self.fig.number)` en el ciclo principal?**
+   - `plt.fignum_exists(self.fig.number)` verifica si la figura asociada a `self.fig` sigue existiendo. Esto es útil para determinar si el usuario ha cerrado la ventana de la gráfica. Si la figura ya no existe, el ciclo se detiene y el monitoreo finaliza.
 
-3. ¿Qué ventaja tiene usar ```__init__``` para inicializar listas y variables?
+2. **¿Por qué se usa `time.sleep(self.intervalo)` y qué pasa si se quita?**
+   - `time.sleep(self.intervalo)` se utiliza para pausar la ejecución del programa durante un intervalo específico (en este caso, 0.5 segundos) entre cada actualización de datos y graficado. Si se quita, el ciclo se ejecutaría de manera continua y rápida, lo que podría causar un uso excesivo de la CPU y hacer que la gráfica se actualice demasiado rápido para ser útil.
 
-4. ¿Qué se está midiendo con ```self.inicio = time.time()```?
+3. **¿Qué ventaja tiene usar `__init__` para inicializar listas y variables?**
+   - Usar `__init__` para inicializar listas y variables permite establecer un estado inicial para los atributos de la clase. Esto asegura que cada instancia de la clase tenga sus propias copias de las listas y variables, evitando conflictos entre instancias y permitiendo un manejo más organizado de los datos.
 
-5. ¿Qué hace exactamente ```subprocess.check_output(...)```?
+4. **¿Qué se está midiendo con `self.inicio = time.time()`?**
+   - `self.inicio = time.time()` almacena el tiempo actual en segundos desde la época (1 de enero de 1970). Esto se utiliza como punto de referencia para calcular el tiempo transcurrido desde que comenzó el monitoreo de temperatura.
 
-6. ¿Por qué se almacena ```ahora = time.time() - self.inicio``` en lugar del tiempo absoluto?
+5. **¿Qué hace exactamente `subprocess.check_output(...)`?**
+   - `subprocess.check_output(...)` ejecuta un comando del sistema (en este caso, `vcgencmd measure_temp`) y captura su salida. Devuelve la salida del comando como un objeto de bytes, que luego se decodifica a una cadena de texto para extraer la temperatura.
 
-7. ¿Por qué se usa ```self.ax.clear()``` antes de graficar?
+6. **¿Por qué se almacena `ahora = time.time() - self.inicio` en lugar del tiempo absoluto?**
+   - Se almacena `ahora = time.time() - self.inicio` para obtener el tiempo transcurrido desde que comenzó el monitoreo. Esto permite que los datos de tiempo sean relativos al inicio del monitoreo, lo que es más útil para graficar el tiempo transcurrido en lugar de un tiempo absoluto.
 
-8. ¿Qué captura el bloque ```try...except``` dentro de ```leer_temperatura()```?
+7. **¿Por qué se usa `self.ax.clear()` antes de graficar?**
+   - `self.ax.clear()` se utiliza para limpiar el área de la gráfica antes de dibujar la nueva serie de datos. Esto evita que las gráficas anteriores se superpongan y asegura que solo se muestre la información más reciente.
 
-9. ¿Cómo podría modificar el script para guardar las temperaturas en un archivo .```csv```?
+8. **¿Qué captura el bloque `try...except` dentro de `leer_temperatura()`?**
+   - El bloque `try...except` captura cualquier excepción que pueda ocurrir al intentar leer la temperatura, como problemas al ejecutar el comando o errores de conversión de datos. Si ocurre un error, se imprime un mensaje y se devuelve `None`.
+
+9. **¿Cómo podría modificar el script para guardar las temperaturas en un archivo .csv?**
+   - El script ya incluye una función `guardar_datos_csv` que se encarga de guardar las temperaturas en un archivo .csv. Para asegurarte de que se guarden las temperaturas, simplemente asegúrate de que la función `guardar_datos_csv` se llame con los parámetros correctos (que ya se hace en `actualizar_datos`). Si deseas cambiar el nombre del archivo o la ubicación, puedes modificar el argumento `archivo_csv` al crear una instancia de `MonitorTemperaturaRPI`.
