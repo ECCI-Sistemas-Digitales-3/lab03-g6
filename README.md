@@ -8,7 +8,9 @@
 
 ## Documentación
 Este laboratorio se hizo con el fin de leer la temperatura interna de nuestra  raspberry, guardar los datos en un archivo csv y realizar la graficas de estas por medio de python.
-Se realizo la programacion en python del siguiente código:[monitor temperatura](https://github.com/ECCI-Sistemas-Digitales-3/lab03-g6/blob/main/monitorTemp_funcional) 
+Se realizo la programacion en python del siguiente código:[monitor temperatura](https://github.com/ECCI-Sistemas-Digitales-3/lab03-g6/blob/main/monitorTemp_funcional) y obteniendo el siguiente archivo csv:[Datos](https://github.com/ECCI-Sistemas-Digitales-3/lab03-g6/blob/main/Datos_temperatura.csv).
+
+![Grafica de datos temperatura obtenidas](grafica.jpg)
 
 ## Preguntas
 
